@@ -20,11 +20,11 @@ var sassOptions = {
 };
 gulp.task('sass', function () {
   return gulp
-    .src('public/scss/**/*.scss')
+    .src('scss/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass(sassOptions).on('error', sass.logError))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('public/dist'));
+    .pipe(gulp.dest('dist'));
 });
 
 // ---WATCH-----------------------------------------------------------  //
@@ -32,7 +32,7 @@ gulp.task('watch', function() {
    // Watch .js files
   // gulp.watch('public/js/*.js', ['scripts']);
    // Watch .scss files
-  gulp.watch('public/scss/*.scss', ['sass'])
+  gulp.watch('scss/*.scss', ['sass'])
   .on('change', function(event) {
     console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
   });
